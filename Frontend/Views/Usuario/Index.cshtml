@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Frontend.Models.UsuarioModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Listado de Usuarios</h2>
+
+<p>
+    <a asp-action="CrearUsuario" asp-controller="Usuario">Registrar nuevo usuario</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "EditarUsuario", "Usuario", new { item.ID, item.NomUsuario }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Eliminar", "EliminarUsuario", "Usuario", new { id = item.ID, item.NomUsuario,item.Estado,item.FechaCreacion})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

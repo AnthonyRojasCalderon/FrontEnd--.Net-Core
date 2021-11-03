@@ -1,0 +1,49 @@
+﻿@model Frontend.Models.UsuarioModel
+
+@{
+    ViewData["Title"] = "EliminarUsuario";
+}
+
+<h2>Eliminar Usuario</h2>
+
+<h3>Esta seguro que desea eliminar al usuario?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NomUsuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomUsuario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+    </dl>
+    
+    <form asp-action="EliminarUsuario" asp-controller="Usuario" method="post">
+        <input type="submit" value="Eliminar" class="btn btn-default" /> |
+        <a asp-action="Index">Retornar usuarios</a>
+    </form>
+</div>
